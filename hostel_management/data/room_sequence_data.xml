@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ir_sequence_room_manage" model="ir.sequence">
+        <field name="name">Room Sequence</field>
+        <field name="code">room_management</field>
+        <field name="prefix">RM</field>
+        <field name="padding">3</field>
+        <field name="number_increment">1</field>
+    </record>
+</odoo>

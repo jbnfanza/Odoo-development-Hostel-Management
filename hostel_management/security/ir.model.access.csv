@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_hostel_room_management,access.hostel.room.management,model_room_management,base.group_user,1,1,1,1
+access_student_info,access.student.info,model_student_information,base.group_user,1,1,1,1
+access_hos_facility,access.hos.facility,model_facility,base.group_user,1,1,1,1
+access_leave_request,access.leave.request,model_leave_request,base.group_user,1,1,1,1

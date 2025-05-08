@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_hostel_management" model="ir.actions.act_window">
+        <field name="name">Hostel Management</field>
+        <field name="res_model">room_management</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter':1}</field>
+
+    </record>
+    <record id="room_management_view_list" model="ir.ui.view">
+        <field name="name">room.management.view.list</field>
+        <field name="model">room_management</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="room_type"/>
+                <field name="number_of_bed"/>
+
+
+            </list>
+        </field>
+    </record>
+    <record id="form_room" model="ir.ui.view">
+        <field name="name">form.student</field>
+        <field name="model">room_management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="action_monthly_invoice" string="Monthly Invoice" type="object" class="btn-primary"/>
+
+
+                </header>
+                <sheet>
+                    <group>
+                        <group call="1">
+                            <field name="name"/>
+                            <field name="room_type"/>
+                            <field name="number_of_bed"/>
+                            <field name="rent_product_id"/>
+                        </group>
+                        <group call="2">
+                            <field name="company_id"/>
+                            <field name="rent"/>
+                            <field name="currency_id"/>
+                            <field name="total_rent"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Facilities">
+                            <group>
+                                <field name="facility_ids" widget="Many2many_tags" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Students">
+                            <field name="student_ids" widget="Many2many_tags" nolabel="1"/>
+                        </page>
+
+                    </notebook>
+
+
+                </sheet>
+
+                <chatter/>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="room_management_search" model="ir.ui.view">
+        <field name="name">room.management.search</field>
+        <field name="model">room_management</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="number_of_bed"/>
+                <field name="room_type"/>
+                <field name="number_of_bed"/>
+                <filter string="Available" name="filter" domain="[('state', 'in',('empty','partial'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Number of Bed" name="number_of_bed" context="{'group_by':'number_of_bed'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+</odoo>
+
+
+

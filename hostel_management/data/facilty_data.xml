@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+        <record id="facility_ac" model="facility">
+            <field name="name">AC</field>
+            <field name="charge">100</field>
+        </record>
+        <record id="facility_tv" model="facility">
+            <field name="name">TV</field>
+            <field name="charge">50</field>
+        </record>
+        <record id="facility_wifi" model="facility">
+            <field name="name">WiFi</field>
+            <field name="charge">25</field>
+        </record>
+</odoo>
+

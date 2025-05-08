@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_hostel_facility" model="ir.actions.act_window">
+        <field name="name">Hostel Facilities</field>
+        <field name="res_model">facility</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="facility_management_view_list" model="ir.ui.view">
+        <field name="name">facility.view.list</field>
+        <field name="model">facility</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="charge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="form_facility" model="ir.ui.view">
+        <field name="name">form.facility</field>
+        <field name="model">facility</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="charge"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

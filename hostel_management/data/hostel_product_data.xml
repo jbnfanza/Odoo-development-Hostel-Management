@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hostel_product_rent_template" model="product.template">
+        <field name="name">Rental Product</field>
+        <field name="type">service</field>
+        <field name="list_price">0.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+</odoo>
+
