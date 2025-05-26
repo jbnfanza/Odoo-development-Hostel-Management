@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+
     <record id="ir_sequence_room_manage" model="ir.sequence">
-        <field name="name">Room Sequence</field>
-        <field name="code">room_management</field>
+        <field name="name">Room Sequence - Company 1</field>
+        <field name="code">room.management</field>
         <field name="prefix">RM</field>
         <field name="padding">3</field>
-        <field name="number_increment">1</field>
+        <field name="company_id" ref="base.main_company"/>
     </record>
+
+    <record id="ir_sequence_room_two_manage" model="ir.sequence">
+        <field name="name">Room Sequence - Company 2</field>
+        <field name="code">room.management</field>
+        <field name="prefix">RM</field>
+        <field name="padding">3</field>
+        <field name="company_id" ref="__custom__.mycompanyid"/>
+    </record>
+
+
 </odoo>
+

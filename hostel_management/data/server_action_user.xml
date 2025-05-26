@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="action_create_user_on_student_creation" model="ir.actions.server">
+        <field name="name">Create User from Student</field>
+        <field name="model_id" ref="hostel_management.model_student_information"/>
+        <field name="state">code</field>
+        <field name="code">
+            if record.email:
+                user = env['res.users'].search([('login', '=', record.email)], limit=1)
+                if not user:
+                    new_user = env['res.users'].create({
+                        'name': record.name,
+                        'login': record.email,
+                        'email': record.email,
+                    })
+        </field>
+    </record>
+</odoo>

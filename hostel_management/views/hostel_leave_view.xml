@@ -25,7 +25,8 @@
                 <header>
                     <field name="state" widget="statusbar"/>
 
-                    <button name="action_approval" string="APPROVE" type="object" class="oe_highlight"  invisible="state != ('new')" />
+                    <button name="action_approval" string="APPROVE" type="object" class="oe_highlight" groups="hostel_management.group_warden_hostel"
+                            invisible="state != ('new')"/>
                 </header>
                 <sheet>
                     <group>
@@ -46,6 +47,23 @@
 
 
             </form>
+        </field>
+    </record>
+    <record id="hostel_leave_search" model="ir.ui.view">
+        <field name="name">leave.request.search</field>
+        <field name="model">leave.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="student_name_id"/>
+                <field name="state"/>
+                <filter string="New" name="filter" domain="[('state', '=','new')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Students" name="student_name_id" context="{'group_by':'student_name_id'}"/>
+                </group>
+
+
+            </search>
         </field>
     </record>
 

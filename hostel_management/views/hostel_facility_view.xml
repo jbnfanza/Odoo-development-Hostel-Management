@@ -30,5 +30,20 @@
             </form>
         </field>
     </record>
+    <record id="hostel_facility_search" model="ir.ui.view">
+        <field name="name">facility.search</field>
+        <field name="model">facility</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="charge"/>
+                <group expand="0" string="Group By">
+                    <filter string="Charges" name="charge" context="{'group_by':'charge'}"/>
+                </group>
+
+
+            </search>
+        </field>
+    </record>
 
 </odoo>

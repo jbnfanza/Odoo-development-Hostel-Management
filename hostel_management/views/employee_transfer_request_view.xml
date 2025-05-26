@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="action_transfer" model="ir.actions.act_window">
+        <field name="name">Employee Transfer Requests</field>
+        <field name="res_model">employee.transfer.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="view_employee_transfer_list" model="ir.ui.view">
+        <field name="name">employee.transfer.request.list</field>
+        <field name="model">employee.transfer.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="employee_id"/>
+                <field name="current_company_id"/>
+                <field name="new_company_id"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_employee_transfer_form" model="ir.ui.view">
+        <field name="name">employee.transfer.request.form</field>
+        <field name="model">employee.transfer.request</field>
+        <field name="arch" type="xml">
+            <form string="Employee Transfer Request">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="current_company_id" readonly="1"/>
+                        <field name="new_company_id"/>
+                        <field name="reason"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

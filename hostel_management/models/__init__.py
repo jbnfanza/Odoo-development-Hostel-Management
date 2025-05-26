@@ -3,3 +3,4 @@ from . import student_information
 from . import facility
 from . import leave_request
 from . import account_move
+from . import cleaning_service

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="access_room_company" model="ir.rule">
+        <field name="name">Room: Company Restriction</field>
+        <field name="model_id" ref="hostel_management.model_room_management"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_warden_hostel'))]"/>
+    </record>
+
+
+    <record id="access_student_company" model="ir.rule">
+        <field name="name">Student: Company Restriction</field>
+        <field name="model_id" ref="hostel_management.model_student_information"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_warden_hostel'))]"/>
+    </record>
+
+
+    <record id="access_leave_company" model="ir.rule">
+        <field name="name">Leave Request: Company Restriction</field>
+        <field name="model_id" ref="hostel_management.model_leave_request"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_warden_hostel'))]"/>
+    </record>
+
+
+    <record id="access_cleaning_company" model="ir.rule">
+        <field name="name">Cleaning Service: Company Restriction</field>
+        <field name="model_id" ref="hostel_management.model_cleaning_service"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_warden_hostel'))]"/>
+    </record>
+</odoo>
+

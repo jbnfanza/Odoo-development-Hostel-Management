@@ -2,12 +2,12 @@
 <odoo>
     <record id="action_student_inf" model="ir.actions.act_window">
         <field name="name">student information</field>
-        <field name="res_model">student_information</field>
+        <field name="res_model">student.information</field>
         <field name="view_mode">list,form</field>
     </record>
     <record id="list_student" model="ir.ui.view">
         <field name="name">list.student</field>
-        <field name="model">student_information</field>
+        <field name="model">student.information</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
@@ -18,7 +18,7 @@
     </record>
     <record id="form_student" model="ir.ui.view">
         <field name="name">form.student</field>
-        <field name="model">student_information</field>
+        <field name="model">student.information</field>
         <field name="arch" type="xml">
             <form>
 
@@ -26,9 +26,10 @@
                 <header>
 
 
-                    <button name="alot_button" string="ALOT ROOM" type="object" class="oe_highlight"/>
-                    <button name="action_vacate" string="Vacate" type="object" class="btn-danger"/>
-
+                    <button name="alot_button" string="ALOT ROOM" type="object" class="oe_highlight"
+                            invisible="name_id!=False"/>
+                    <button name="action_vacate" string="VACATE" type="object" class="oe_highlight"
+                            invisible="name_id==False"/>
 
 
                 </header>
@@ -37,8 +38,8 @@
 
                         <field name="image" widget="image" class="oe_avatar"/>
                     </header>
-                      <div class="oe_button_box" name="button_box">
-                        <button type="object" name="action_view_invoices" class="oe_stat_button" icon="fa-file-invoice">
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_invoices" class="oe_stat_button" icon="fa-edit">
                             <field string="Invoices" name="invoice_count" widget="statinfo"/>
                         </button>
                     </div>
@@ -47,6 +48,7 @@
                             <field name="name"/>
                             <field name="name_id"/>
                             <field name="student_id"/>
+                            <!--                            <field name="active"/>-->
                             <field name="date_of_birth"/>
                             <field name="age" compute='_compute_age'/>
 
@@ -56,6 +58,9 @@
                             <field name="receive_mail"/>
                             <field name="company_id"/>
                             <field name="partner_id"/>
+                            <field name="monthly_amount"/>
+                            <field name="invoice_status"/>
+                            <field name="user_id"/>
                         </group>
 
                     </group>
@@ -71,7 +76,7 @@
                                 </group>
                                 <group call="2">
 
-                                    <field name="state_id" placeholder="State"/>
+                                    <field name="state_id" invisible="country_id==False"/>
                                     <field name="zip" placeholder="ZIP"/>
                                 </group>
 
@@ -86,4 +91,22 @@
         </field>
 
     </record>
+    <record id="student_search" model="ir.ui.view">
+        <field name="name">student_information.search</field>
+        <field name="model">student.information</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <filter string="ARCHIVED" name="filter" domain="[('active', '=',(False))]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Rooms" name="name_id" context="{'group_by':'name_id'}"/>
+                </group>
+
+
+            </search>
+        </field>
+    </record>
+
+
 </odoo>

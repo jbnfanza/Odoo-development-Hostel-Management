@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="hostel_management_menu_root" name="Hostel Management" />
-    <menuitem id="room_management" name="Room" parent="hostel_management_menu_root"  action="action_hostel_management"/>
+    <menuitem id="hostel_management_menu_root" name="Hostel Management"/>
+    <menuitem id="room_management" name="Room" parent="hostel_management_menu_root" action="action_hostel_management"/>
     <menuitem id="student_inform" name="Students" parent="hostel_management_menu_root" action="action_student_inf"/>
-    <menuitem id="facility_menu" name="Facilities" parent="hostel_management_menu_root" action="action_hostel_facility"/>
+    <menuitem id="facility_menu" name="Facilities" parent="hostel_management_menu_root"
+              action="action_hostel_facility"/>
     <menuitem id="leave_menu" name="Leave Request" parent="hostel_management_menu_root" action="action_leave"/>
+    <menuitem id="cleaning_menu" name="Cleaning Service" parent="hostel_management_menu_root" action="action_cleaning"/>
+    <menuitem id="reporting_menu" name="Report" parent="hostel_management_menu_root"/>
+
+
+    <menuitem id="menu_student_report_action" name="Generate Report" parent="reporting_menu" action="action_student_report_wizard"/>
+    <menuitem id="menu_leave_request_report_action" name="Print Report" parent="reporting_menu" action="action_leave_request_report_wizard"/>
+
 </odoo>
+

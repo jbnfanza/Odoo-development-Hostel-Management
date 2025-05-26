@@ -5,11 +5,13 @@
     <field name="model">account.move</field>
     <field name="inherit_id" ref="account.view_move_form"/>
     <field name="arch" type="xml">
-      <xpath expr="//sheet//group[1]" position="before">
-        <group >
-          <field name="student_id"/>
-        </group>
+      <group>
+      <xpath expr="//sheet//group[1]" position="after">
+      <group>
+          <field name="student_id" readonly="state != ('draft')" /> />
+      </group>
       </xpath>
+      </group>
     </field>
   </record>
 </odoo>

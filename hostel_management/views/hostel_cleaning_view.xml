@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_cleaning" model="ir.actions.act_window">
+        <field name="name">Cleaning Service</field>
+        <field name="res_model">cleaning.service</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="cleaning_service_view_list" model="ir.ui.view">
+        <field name="name">cleaning.view.list</field>
+        <field name="model">cleaning.service</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="state"/>
+
+            </list>
+        </field>
+    </record>
+    <record id="form_cleaning" model="ir.ui.view">
+        <field name="name">form.cleaning</field>
+        <field name="model">cleaning.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="action_assign" string="ASSIGN" type="object" class="oe_highlight"
+                            invisible="state != ('new')"/>
+                    <button name="action_complete" string="COMPLETE" type="object" class="oe_highlight"
+                            invisible="state != ('assigned')"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group call="1">
+                            <field name="name"/>
+                            <field name="staff_id"/>
+
+
+                        </group>
+                        <group call="2">
+                            <field name="start_time"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+
+
+                </sheet>
+
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="hostel_cleaning_search" model="ir.ui.view">
+        <field name="name">cleaning.service.search</field>
+        <field name="model">cleaning.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="staff_id"/>
+                <field name="state"/>
+                <filter string="Assigned" name="filter" domain="[('state', '=','assigned')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Cleaning Staff" name="staff_id" context="{'group_by':'staff_id'}"/>
+                </group>
+
+
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

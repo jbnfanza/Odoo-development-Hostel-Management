@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_student_report_view_form" model="ir.ui.view">
+        <field name="name">student.report.wizard.form</field>
+        <field name="model">student.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Student Report" create="false" edit="false">
+                <group>
+
+                    <field name="filter_by"/>
+
+                </group>
+                <footer>
+                    <button string="Print Report"
+                            type="object"
+                            name="print_report"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_report_wizard" model="ir.actions.act_window">
+        <field name="name">student report</field>
+        <field name="res_model">student.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_student_report_view_form"/>
+        <field name="target">new</field>
+
+    </record>
+</odoo>
