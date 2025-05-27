@@ -8,7 +8,8 @@
             <form string="Generate Student Report" create="false" edit="false">
                 <group>
 
-                    <field name="filter_by"/>
+                    <field name="student_id"/>
+                    <field name="room_id"/>
 
                 </group>
                 <footer>
@@ -31,3 +32,5 @@
 
     </record>
 </odoo>
+
+

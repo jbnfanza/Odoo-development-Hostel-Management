@@ -8,6 +8,10 @@ access_cleaning_warden,access.cleaning.warden,model_cleaning_service,group_warde
 access_wiz_warden,access.wiz.warden,model_student_report_wizard,group_warden_hostel,1,1,1,1
 access_res_users_warden,res.users.warden,base.model_res_users,group_warden_hostel,1,1,1,1
 access_leave_wiz_warden,access.leave.wiz.warden,model_leave_request_report_wizard,group_warden_hostel,1,1,1,1
+access_student_leave_wiz_warden,access.student.leave.wiz.warden,model_students_leave_request_report_wizard,group_warden_hostel,1,1,1,1
+
+
+
 
 
 access_student_self,access.student.self,model_student_information,group_student_hostel,1,0,0,0
@@ -19,5 +23,4 @@ access_leave_student,access.leave.student,model_leave_request,group_student_host
 access_room_cleaning_staff,access.cleaning.staff,model_room_management,group_staff_hostel,1,1,0,0
 access_cleaning_staff,access.cleaning.staff,model_cleaning_service,group_staff_hostel,1,1,1,1
 access_student_cleaning_staff,access.student.cleaning.staff,model_student_information,group_staff_hostel,1,1,0,0
-
 

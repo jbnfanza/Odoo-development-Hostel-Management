@@ -7,20 +7,33 @@ class StudentReportWizard(models.TransientModel):
 
     room_id = fields.Many2one('room.management', string='Room')
     student_id = fields.Many2one('student.information', string='Student')
-    filter_by = fields.Selection([('new', 'Room'), ('students', 'Students')], string="Filter By")
 
     def print_report(self):
-        domain = []
+        cr = self.env.cr
 
-        if self.filter_by == 'students' and self.student_id:
-            domain = [('id', '=', self.student_id.id)]
-        elif self.filter_by == 'new' and self.room_id:
-            domain = [('name_id', '=', self.room_id.id)]
+        if self.student_id:
+            query = """
+                SELECT id FROM student_information WHERE id = %s
+            """
+            cr.execute(query, (self.student_id.id,))
 
-        students = self.env['student.information'].search(domain)
+        elif self.room_id:
+            query = """
+                SELECT id FROM student_information WHERE name_id = %s
+            """
+            cr.execute(query, (self.room_id.id,))
 
-        if not students:
+        else:
+            raise UserError("Please select either a student or a room to generate the report.")
+
+        result = cr.fetchall()
+        student_ids = [row[0] for row in result]
+
+        if not student_ids:
             raise UserError("No student records found for the selected filter.")
 
+        students = self.env['student.information'].browse(student_ids)
+
         return self.env.ref('hostel_management.action_report_temp_stud').report_action(students)
+
 

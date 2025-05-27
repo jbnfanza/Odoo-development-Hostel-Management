@@ -38,6 +38,7 @@ class StudentInformation(models.Model):
                                       compute='_compute_invoice_status', store=True)
     invoice_ids = fields.One2many('account.move', 'student_id', string="Invoices")
     is_on_leave = fields.Boolean(default=False)
+    pending_amount = fields.Float(string="Pending Amount", compute="_compute_pending_amount")
 
     @api.onchange('date_of_birth')
     def _onchange_birth_date(self):
@@ -177,3 +178,11 @@ class StudentInformation(models.Model):
         if not vals.get('student_id'):
             vals['student_id'] = self.env['ir.sequence'].next_by_code('student.information')
         return super().create(vals)
+
+
+    def _compute_pending_amount(self):
+        for student in self:
+
+            student.pending_amount = sum(
+                student.invoice_ids.filtered(lambda inv: inv.state in ['draft','posted']).mapped(
+                    'amount_residual'))
