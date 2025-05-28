@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <data>
-        <record id="action_report_temp_leave" model="ir.actions.report">
-            <field name="name">Leave Request Report</field>
-            <field name="model">leave.request</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">hostel_management.report_leave_request_report_details</field>
-            <field name="report_file">hostel_management.report_leave_request_report_details</field>
-            <field name="binding_model_id" ref="model_leave_request"/>
-            <field name="binding_type">report</field>
 
-        </record>
-    </data>
+<odoo>
+    <record id="leave_request_report_action" model="ir.actions.report">
+        <field name="name">Students Leave Request Report</field>
+        <field name="model">leave.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hostel_management.leave_request_report_template</field>
+        <field name="report_file">hostel_management.leave_request_report_template</field>
+    </record>
 </odoo>

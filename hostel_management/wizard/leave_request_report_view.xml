@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <odoo>
-     <record id="view_leave_request_report_view_form" model="ir.ui.view">
+    <record id="view_leave_request_report_wizard" model="ir.ui.view">
         <field name="name">leave.request.report.wizard.form</field>
         <field name="model">leave.request.report.wizard</field>
         <field name="arch" type="xml">
-            <form string="Generate leave request Report" create="false" edit="false">
+            <form string="Leave Request Report">
                 <group>
-
                     <field name="filter_by"/>
-
+                    <field name="student_id"  invisible="filter_by != 'student'" />
+                    <field name="room_id"  invisible="filter_by != 'room'"/>
+                    <field name="start_date" invisible="filter_by != 'start'"/>
+                    <field name="arrival_date" invisible="filter_by != 'arrival'"/>
                 </group>
                 <footer>
-                    <button string="Print Report"
-                            type="object"
-                            name="print_report"
-                            class="btn-primary"/>
+                    <button string="Print Report" type="object" name="print_report" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
@@ -22,11 +22,12 @@
     </record>
 
     <record id="action_leave_request_report_wizard" model="ir.actions.act_window">
-        <field name="name">leave request report</field>
+        <field name="name">Leave Request Report</field>
         <field name="res_model">leave.request.report.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_leave_request_report_view_form"/>
         <field name="target">new</field>
-
     </record>
+
+
 </odoo>
+

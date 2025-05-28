@@ -9,11 +9,18 @@
                     <h2 style="text-align: center;">Students Report</h2>
 
                     <!-- Additional Row -->
-                    <p><strong>Student:</strong> <span t-esc="docs and docs[0].name or ''"/></p>
-                    <p><strong>Room:</strong> <span t-esc="docs and docs[0].name_id.name or ''"/></p>
+                    <p>
+                        <strong>Student:</strong>
+                        <span t-esc="docs and docs[0].name or ''"/>
+                    </p>
+                    <p>
+                        <strong>Room:</strong>
+                        <span t-esc="docs and docs[0].name_id.name or ''"/>
+                    </p>
 
                     <!-- Table -->
-                    <table class="table table-sm table-bordered" style="width:100%; border:1px solid black; border-collapse: collapse;">
+                    <table class="table table-sm table-bordered"
+                           style="width:100%; border:1px solid black; border-collapse: collapse;">
                         <thead>
                             <tr style="background-color: #e6e6e6;">
                                 <th style="border:1px solid black;">Sl. No</th>
@@ -24,15 +31,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="docs" t-as="o" t-foreach-index="i">
+                            <t t-set="counter" t-value="0"/>
+                            <t t-foreach="docs" t-as="o">
+                                <t t-set="counter" t-value="counter + 1"/>
                                 <tr>
-                                    <td style="border:1px solid black;"><span t-esc="(i or 0) + 1"/></td>
+                                    <td style="border:1px solid black;"><t t-esc="counter"/></td>
                                     <td style="border:1px solid black;"><span t-esc="o.name"/></td>
                                     <td style="border:1px solid black;"><span t-esc="o.pending_amount"/></td>
                                     <td style="border:1px solid black;"><span t-esc="o.name_id.name"/></td>
                                     <td style="border:1px solid black;"><span t-esc="o.invoice_status"/></td>
                                 </tr>
                             </t>
+
                         </tbody>
                     </table>
 
@@ -41,3 +51,5 @@
         </t>
     </template>
 </odoo>
+
+

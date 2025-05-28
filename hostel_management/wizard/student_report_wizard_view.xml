@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <form string="Generate Student Report" create="false" edit="false">
                 <group>
-
-                    <field name="student_id"/>
-                    <field name="room_id"/>
+                     <field name="filter_by"/>
+                    <field name="student_id"  invisible="filter_by != 'student'" />
+                    <field name="room_id"  invisible="filter_by != 'room'"/>
 
                 </group>
                 <footer>

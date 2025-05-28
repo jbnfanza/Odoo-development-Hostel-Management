@@ -4,6 +4,11 @@ from odoo.exceptions import UserError
 class StudentReportWizard(models.TransientModel):
     _name = 'student.report.wizard'
     _description = 'Student Report Wizard'
+    filter_by = fields.Selection([
+        ('student', 'Student'),
+        ('room', 'Room'),
+
+    ], string="Filter By", required=True)
 
     room_id = fields.Many2one('room.management', string='Room')
     student_id = fields.Many2one('student.information', string='Student')

@@ -8,7 +8,6 @@ access_cleaning_warden,access.cleaning.warden,model_cleaning_service,group_warde
 access_wiz_warden,access.wiz.warden,model_student_report_wizard,group_warden_hostel,1,1,1,1
 access_res_users_warden,res.users.warden,base.model_res_users,group_warden_hostel,1,1,1,1
 access_leave_wiz_warden,access.leave.wiz.warden,model_leave_request_report_wizard,group_warden_hostel,1,1,1,1
-access_student_leave_wiz_warden,access.student.leave.wiz.warden,model_students_leave_request_report_wizard,group_warden_hostel,1,1,1,1
 
 
 

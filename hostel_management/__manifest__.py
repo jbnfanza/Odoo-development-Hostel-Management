@@ -36,11 +36,8 @@
         "report/leave_request_report_template.xml",
 
         "report/leave_request_report.xml",
-        "report/student_leave_request_report.xml",
        "wizard/student_report_wizard_view.xml",
-        "report/student_leave_request_report_template.xml",
         "wizard/leave_request_report_view.xml",
-        "wizard/students_leave_request_report_view.xml",
 
         "views/hostel_view_management.xml",
 

@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="report_leave_request_report_details">
+    <template id="leave_request_report_template">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
                 <div class="page">
-                    <h2 style="text-align: center;">Leave Request Report</h2>
+                    <h2 style="text-align: center;">Students Leave Request Report</h2>
                     <table class="table table-sm table-bordered"
                            style="width:100%; border:1px solid black; border-collapse: collapse;">
                         <thead>
                             <tr style="background-color: #e6e6e6;">
+                                <th style="border:1px solid black;">SL NUMBER</th>
+                                <th style="border:1px solid black;">Student</th>
+                                <th style="border:1px solid black;">Room</th>
+                                <th style="border:1px solid black;">Start Date</th>
+                                <th style="border:1px solid black;">Arrival Date</th>
+                                <th style="border:1px solid black;">Duration</th>
 
-                                <th style="border:1px solid black;">Name</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="docs" t-as="o" t-foreach-index="i">
+                            <t t-set="counter" t-value="0"/>
+
+                            <t t-foreach="docs" t-as="o">
+                                <t t-set="counter" t-value="counter + 1"/>
+
                                 <tr>
+                                    <tr>
+                                        <td style="border:1px solid black;"><span t-esc="counter"/></td>
+                                        <td style="border:1px solid black;"><t t-esc="o.student_id.name"/></td>
+                                        <td style="border:1px solid black;"><t t-esc="o.student_name_id.name_id.name"/></td>
+                                        <td style="border:1px solid black;"><t t-esc="o.name"/></td>
+                                        <td style="border:1px solid black;"><t t-esc="o.arrival_date"/></td>
+<!--                                        <td style="border:1px solid black;"><t t-esc="o.arrival_date"/></td>-->
 
-                                    <td style="border:1px solid black;">
-                                        <span t-esc="o.name"/>
-                                    </td>
-                                </tr>
+                                    </tr>
 
+                                 </tr>
                             </t>
                         </tbody>
                     </table>
@@ -31,4 +45,3 @@
         </t>
     </template>
 </odoo>
-

@@ -10,7 +10,6 @@
     <menuitem id="reporting_menu" name="Report" parent="hostel_management_menu_root"/>
     <menuitem id="menu_student_report_action" name="Students Report" parent="reporting_menu" action="action_student_report_wizard"/>
     <menuitem id="menu_leave_request_report_action" name="Leave Request Report" parent="reporting_menu" action="action_leave_request_report_wizard"/>
-    <menuitem id="menu_students_leave_request_report_action" name="Students Leave Request Report" parent="reporting_menu" action="action_students_leave_request_report_wizard"/>
 
 
 </odoo>
